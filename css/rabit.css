@@ -80,7 +80,7 @@ table.test{
 p.text{
     font-size: 20px;
 }
-footer{
+/*footer{
     margin-top: 15px;
     height: 5vh;
     background-color: var(--c2);
@@ -92,4 +92,4 @@ footer{
     -moz-background-size: cover;
     -o-background-size: cover;
     align-items: center;
-}
+}*/
