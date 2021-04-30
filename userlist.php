@@ -25,6 +25,8 @@
     </tbody>
     </table>
     </section>
-<?
-    include("include/bottom.php");
-?>
+<!--This is the foot of the page -->
+<footer>
+</footer>
+</body>
+</html>
