@@ -28,7 +28,7 @@
     </table>
     </section>
 <!--This is the foot of the page -->
-<footer>
-</footer>
+<!--<footer>
+</footer>-->
 </body>
 </html>
