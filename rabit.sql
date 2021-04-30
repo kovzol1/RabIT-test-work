@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2021. Ápr 30. 15:59
+-- Létrehozás ideje: 2021. Ápr 30. 18:06
 -- Kiszolgáló verziója: 10.1.31-MariaDB
 -- PHP verzió: 7.2.4
 
@@ -36,6 +36,14 @@ CREATE TABLE `advertisements` (
   `title` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- TÁBLA KAPCSOLATAI `advertisements`:
+--   `userid`
+--       `users` -> `id`
+--   `userid`
+--       `users` -> `id`
+--
+
 -- --------------------------------------------------------
 
 --
@@ -48,6 +56,10 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
+-- TÁBLA KAPCSOLATAI `users`:
+--
+
+--
 -- Indexek a kiírt táblákhoz
 --
 
@@ -55,7 +67,8 @@ CREATE TABLE `users` (
 -- A tábla indexei `advertisements`
 --
 ALTER TABLE `advertisements`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `advertisements-users` (`userid`);
 
 --
 -- A tábla indexei `users`
@@ -78,6 +91,16 @@ ALTER TABLE `advertisements`
 --
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- Megkötések a kiírt táblákhoz
+--
+
+--
+-- Megkötések a táblához `advertisements`
+--
+ALTER TABLE `advertisements`
+  ADD CONSTRAINT `advertisements-users` FOREIGN KEY (`userid`) REFERENCES `users` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
